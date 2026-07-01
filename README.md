@@ -70,7 +70,8 @@ This project was built to make learning Data Structures and Algorithms more intu
 
 https://github.com/user-attachments/assets/291ef668-a019-46e0-8661-cb5d92ac59f7
 
-## Author
-
+## Creator
 Saquib 
-Page Name - RizQAlgo
+
+## Page Name 
+RizQAlgo
