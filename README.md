@@ -36,6 +36,8 @@ An interactive Data Structures and Algorithms Visualizer designed to help studen
 ## Tech Stack
 
 * HTML
+* CSS
+* JavaScript
 
 ## Purpose
 
