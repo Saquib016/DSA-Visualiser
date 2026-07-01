@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RizqAlgo | Complete DSA Visualization Platform</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="bg-[#0a0e27] text-gray-100">
+
+    <!-- AUTHENTICATION SECTION -->
+    <section id="auth-page" class="fixed inset-0 z-50 flex items-center justify-center min-h-screen p-4">
+        <div class="absolute inset-0 bg-gradient-to-br from-[#0a0e27] via-[#1a1f4b] to-[#0a0e27]"></div>
+        <div class="absolute inset-0 opacity-30">
+            <div class="absolute top-20 left-20 w-96 h-96 bg-[#00f3ff] rounded-full filter blur-[120px] animate-pulse"></div>
+            <div class="absolute bottom-20 right-20 w-[500px] h-[500px] bg-[#ff006e] rounded-full filter blur-[150px] animate-pulse" style="animation-delay: 1s;"></div>
+        </div>
+
+        <div class="relative z-10 w-full max-w-6xl h-[85vh] flex rounded-2xl overflow-hidden glass-strong shadow-2xl">
+            <div class="hidden lg:flex w-1/2 relative overflow-hidden p-12 flex-col justify-between bg-gradient-to-br from-[#151a3a]/80 to-[#0a0e27]/80">
+                <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&q=80')] bg-cover bg-center opacity-20 mix-blend-overlay"></div>
+
+                <div class="relative z-10">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-[#00f3ff] to-[#8338ec] flex items-center justify-center shadow-lg shadow-[#00f3ff]/30">
+                            <i class="fas fa-atom text-2xl text-white"></i>
+                        </div>
+                        <h1 class="text-4xl font-sci-fi font-bold bg-gradient-to-r from-[#00f3ff] to-[#ff006e] bg-clip-text text-transparent">RizqAlgo</h1>
+                    </div>
+                    <p class="text-[#00f3ff]/80 text-lg font-light mb-8">Master Data Structures & Algorithms Through Interactive Visualization</p>
+                </div>
+
+                <div class="relative z-10 space-y-4">
+                    <div class="flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/10 backdrop-blur-md">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-[#00f3ff] to-[#8338ec] flex items-center justify-center shadow-lg">
+                            <i class="fas fa-project-diagram text-xl text-white"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-white">Interactive Learning</h3>
+                            <p class="text-sm text-gray-400">50+ algorithms with step-by-step visualization</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/10 backdrop-blur-md">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-[#ff006e] to-[#8338ec] flex items-center justify-center shadow-lg">
+                            <i class="fas fa-code text-xl text-white"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-white">Real-time Execution</h3>
+                            <p class="text-sm text-gray-400">Control speed, input custom data, track variables</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/10 backdrop-blur-md">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-[#ffbe0b] to-[#ff006e] flex items-center justify-center shadow-lg">
+                            <i class="fas fa-rocket text-xl text-white"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-white">Interview Ready</h3>
+                            <p class="text-sm text-gray-400">FAANG-level problem solving patterns</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative z-10 text-xs text-gray-500 font-mono flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-[#10b981] animate-pulse"></span>
+                    SYSTEM ONLINE | SECURE CONNECTION ESTABLISHED
+                </div>
+            </div>
+
+            <div class="flex-1 relative bg-[#0a0e27]/90 p-8 lg:p-16 flex flex-col justify-center overflow-y-auto">
+                <div id="login-form" class="w-full max-w-md mx-auto space-y-6 animate-fade-in">
+                    <div class="text-center mb-8">
+                        <h2 class="text-3xl font-sci-fi font-bold text-white mb-2">WELCOME BACK</h2>
+                        <p class="text-gray-400">Access your learning dashboard</p>
+                    </div>
+
+                    <form onsubmit="handleLogin(event)" class="space-y-5">
+                        <div class="space-y-2">
+                            <label class="text-xs font-mono text-[#00f3ff] uppercase tracking-wider">Email / Username</label>
+                            <div class="relative group">
+                                <input type="text" id="login-email" required class="w-full bg-[#151a3a] border border-[#2d3561] rounded-lg px-4 py-3.5 pl-11 text-white placeholder-gray-500 focus:outline-none focus:border-[#00f3ff] focus:ring-1 focus:ring-[#00f3ff] transition-all" placeholder="alex@RizqAlgo.dev">
+                                <i class="fas fa-user absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 group-focus-within:text-[#00f3ff] transition-colors"></i>
+                            </div>
+                        </div>
+
+                        <div class="space-y-2">
+                            <label class="text-xs font-mono text-[#00f3ff] uppercase tracking-wider">Password</label>
+                            <div class="relative group">
+                                <input type="password" id="login-password" required class="w-full bg-[#151a3a] border border-[#2d3561] rounded-lg px-4 py-3.5 pl-11 pr-11 text-white placeholder-gray-500 focus:outline-none focus:border-[#00f3ff] focus:ring-1 focus:ring-[#00f3ff] transition-all" placeholder="••••••••">
+                                <i class="fas fa-lock absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 group-focus-within:text-[#00f3ff] transition-colors"></i>
+                                <button type="button" onclick="togglePassword('login-password')" class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 hover:text-[#00f3ff] transition-colors">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="w-full btn-cyber py-4 rounded-lg font-sci-fi text-lg shadow-lg shadow-[#00f3ff]/20">INITIALIZE SESSION</button>
+                    </form>
+
+                    <p class="text-center text-gray-400 text-sm pt-4">
+                        Don't have an account?
+                        <button onclick="switchAuthMode('register')" class="text-[#00f3ff] hover:text-[#ff006e] font-semibold ml-1 transition-colors">Create Account</button>
+                    </p>
+                </div>
+
+                <div id="register-form" class="hidden w-full max-w-md mx-auto space-y-5 animate-fade-in">
+                    <div class="text-center mb-6">
+                        <h2 class="text-3xl font-sci-fi font-bold text-white mb-2">JOIN NETWORK</h2>
+                        <p class="text-gray-400">Start your DSA mastery journey</p>
+                    </div>
+
+                    <form onsubmit="handleRegister(event)" class="space-y-4">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="space-y-2">
+                                <label class="text-xs font-mono text-[#00f3ff] uppercase">First Name</label>
+                                <input type="text" id="reg-firstname" required class="w-full bg-[#151a3a] border border-[#2d3561] rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[#00f3ff] transition-all" placeholder="Alex">
+                            </div>
+                            <div class="space-y-2">
+                                <label class="text-xs font-mono text-[#00f3ff] uppercase">Last Name</label>
+                                <input type="text" id="reg-lastname" required class="w-full bg-[#151a3a] border border-[#2d3561] rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[#00f3ff] transition-all" placeholder="Chen">
+                            </div>
+                        </div>
+
+                        <div class="space-y-2">
+                            <label class="text-xs font-mono text-[#00f3ff] uppercase tracking-wider">Email Address</label>
+                            <input type="email" id="reg-email" required class="w-full bg-[#151a3a] border border-[#2d3561] rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[#00f3ff] transition-all" placeholder="alex.chen@example.com">
+                        </div>
+
+                        <div class="space-y-2">
+                            <label class="text-xs font-mono text-[#00f3ff] uppercase tracking-wider">Password</label>
+                            <div class="relative">
+                                <input type="password" id="reg-password" required minlength="8" class="w-full bg-[#151a3a] border border-[#2d3561] rounded-lg px-4 py-3 pr-11 text-white focus:outline-none focus:border-[#00f3ff] transition-all" placeholder="Minimum 8 characters">
+                                <button type="button" onclick="togglePassword('reg-password')" class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 hover:text-[#00f3ff]">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="w-full bg-gradient-to-r from-[#ff006e] to-[#8338ec] hover:from-[#ff006e]/90 hover:to-[#8338ec]/90 text-white py-4 rounded-lg font-sci-fi text-lg shadow-lg shadow-[#ff006e]/20 transition-all hover:scale-[1.02]">CREATE ACCOUNT</button>
+                    </form>
+
+                    <p class="text-center text-gray-400 text-sm pt-2">
+                        Already have an account?
+                        <button onclick="switchAuthMode('login')" class="text-[#00f3ff] hover:text-[#ff006e] font-semibold ml-1 transition-colors">Sign In</button>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DASHBOARD SECTION -->
+    <section id="dashboard-page" class="hidden min-h-screen grid-bg">
+        <nav class="h-16 glass border-b border-[#00f3ff]/20 fixed w-full z-40 px-6 flex items-center justify-between">
+            <div class="flex items-center gap-4">
+                <button onclick="toggleMobileSidebar()" class="lg:hidden text-[#00f3ff] hover:text-white transition-colors">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+                <div class="flex items-center gap-3 cursor-pointer" onclick="scrollToTop()">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-[#00f3ff] to-[#8338ec] flex items-center justify-center shadow-lg shadow-[#00f3ff]/30">
+                        <i class="fas fa-atom text-white"></i>
+                    </div>
+                    <h1 class="text-2xl font-sci-fi font-bold bg-gradient-to-r from-[#00f3ff] to-[#ff006e] bg-clip-text text-transparent hidden sm:block">RizqAlgo</h1>
+                </div>
+            </div>
+
+            <div class="flex-1 max-w-2xl mx-4 lg:mx-8">
+                <div class="relative group">
+                    <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 group-focus-within:text-[#00f3ff] transition-colors"></i>
+                    <input type="text" id="global-search" placeholder="Search algorithms, data structures, topics..." class="w-full bg-[#151a3a] border border-[#2d3561] rounded-full py-2.5 pl-12 pr-4 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-[#00f3ff] focus:ring-1 focus:ring-[#00f3ff] transition-all" onkeyup="searchTopics(this.value)">
+                </div>
+            </div>
+
+            <div class="flex items-center gap-3">
+                <button onclick="toggleNotifications()" class="w-10 h-10 rounded-full bg-[#151a3a] border border-[#2d3561] flex items-center justify-center hover:border-[#00f3ff] hover:bg-[#151a3a]/80 transition-all relative group">
+                    <i class="fas fa-bell text-gray-300 group-hover:text-[#00f3ff] transition-colors"></i>
+                    <span id="notif-badge" class="absolute -top-1 -right-1 w-5 h-5 bg-[#ff006e] rounded-full text-xs flex items-center justify-center font-bold border-2 border-[#0a0e27]">3</span>
+                </button>
+
+                <button onclick="openProfile()" class="flex items-center gap-3 pl-3 border-l border-[#2d3561] group">
+                    <div class="text-right hidden md:block">
+                        <div id="user-name" class="text-sm font-semibold text-white group-hover:text-[#00f3ff] transition-colors">Alex Chen</div>
+                        <div class="text-xs text-[#00f3ff]">Pro Member</div>
+                    </div>
+                    <div class="w-10 h-10 rounded-full bg-gradient-to-br from-[#00f3ff] to-[#8338ec] flex items-center justify-center font-bold text-white border-2 border-[#0a0e27] shadow-lg group-hover:scale-110 transition-transform">
+                        <span id="user-initials">AC</span>
+                    </div>
+                </button>
+            </div>
+        </nav>
+
+        <div class="notification-panel glass-strong rounded-xl shadow-2xl" id="notification-panel">
+            <div class="p-4 border-b border-[#00f3ff]/20 flex items-center justify-between">
+                <h3 class="font-bold text-white flex items-center gap-2"><i class="fas fa-bell text-[#00f3ff]"></i> Notifications</h3>
+                <button onclick="markAllRead()" class="text-xs text-[#00f3ff] hover:text-[#ff006e] transition-colors">Mark all read</button>
+            </div>
+            <div id="notification-list" class="divide-y divide-[#00f3ff]/10"></div>
+        </div>
+
+        <div class="flex pt-16 min-h-screen">
+            <aside id="sidebar" class="w-72 glass border-r border-[#00f3ff]/20 fixed h-full overflow-y-auto hidden lg:block z-30 transition-transform">
+                <div class="p-4">
+                    <h3 class="text-xs font-mono text-[#00f3ff] uppercase tracking-wider mb-4 flex items-center gap-2">
+                        <i class="fas fa-folder-tree"></i> Categories
+                    </h3>
+                    <div id="category-nav" class="space-y-1"></div>
+                </div>
+
+                <div class="p-4 border-t border-[#00f3ff]/10">
+                    <button onclick="openSettings()" class="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-gray-400 hover:text-white hover:bg-[#151a3a] transition-all"><i class="fas fa-cog"></i> Settings</button>
+                    <button onclick="handleLogout()" class="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-gray-400 hover:text-[#ff006e] hover:bg-[#ff006e]/10 transition-all mt-1"><i class="fas fa-sign-out-alt"></i> Logout</button>
+                </div>
+            </aside>
+
+            <div id="mobile-overlay" onclick="toggleMobileSidebar()" class="fixed inset-0 bg-black/50 z-20 hidden lg:hidden backdrop-blur-sm"></div>
+
+            <main class="flex-1 lg:ml-72 p-6 lg:p-8 min-h-screen">
+                <div class="mb-8 animate-fade-in">
+                    <h2 class="text-3xl lg:text-4xl font-bold text-white mb-2">Welcome back, <span id="welcome-name">Alex</span>! <span class="text-3xl animate-pulse">👋</span></h2>
+                    <p class="text-gray-400">Master algorithms with interactive visualizations. <span class="text-[#00f3ff] font-bold">32 topics</span> available.</p>
+                </div>
+
+                <div id="topics-grid" class="space-y-10"></div>
+            </main>
+        </div>
+    </section>
+
+    <!-- VISUALIZATION SECTION -->
+    <section id="viz-page" class="hidden h-screen flex flex-col bg-[#0a0e27]">
+        <!-- FIXED HEADER -->
+        <header class="h-16 glass border-b border-[#00f3ff]/20 flex items-center justify-between px-6 z-20 shrink-0">
+            <div class="flex items-center gap-4">
+                <button onclick="closeVisualizer()" class="w-10 h-10 rounded-lg bg-[#151a3a] hover:bg-[#1a1f4b] flex items-center justify-center transition-all group border border-[#2d3561] hover:border-[#00f3ff]">
+                    <i class="fas fa-arrow-left text-gray-400 group-hover:text-[#00f3ff] transition-colors"></i>
+                </button>
+                <div>
+                    <h2 id="viz-topic-title" class="text-xl font-bold text-white font-sci-fi">Visualization</h2>
+                    <div class="flex items-center gap-2 mt-0.5">
+                        <span id="viz-category" class="text-xs text-gray-400">Category</span>
+                        <span class="text-gray-600">•</span>
+                        <span id="viz-difficulty" class="text-xs px-2 py-0.5 rounded badge-easy">Easy</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-3">
+                <button onclick="resetVisualization()" class="px-4 py-2 text-sm text-[#00f3ff] border border-[#00f3ff]/30 rounded-lg hover:bg-[#00f3ff]/10 transition-all flex items-center gap-2">
+                    <i class="fas fa-undo"></i> <span class="hidden sm:inline">Reset</span>
+                </button>
+
+                <div class="h-8 w-px bg-[#2d3561] mx-1"></div>
+
+                <button onclick="stepBackward()" class="w-10 h-10 rounded-lg bg-[#151a3a] hover:bg-[#1a1f4b] flex items-center justify-center text-white transition-all border border-[#2d3561] hover:border-[#00f3ff]" title="Previous Step">
+                    <i class="fas fa-step-backward"></i>
+                </button>
+
+                <button onclick="togglePlay()" id="play-btn" class="px-6 py-2.5 bg-[#00f3ff] hover:bg-[#00f3ff]/90 text-[#0a0e27] font-bold rounded-lg transition-all flex items-center gap-2 shadow-lg shadow-[#00f3ff]/20">
+                    <i class="fas fa-play" id="play-icon"></i> <span id="play-text">Start</span>
+                </button>
+
+                <button onclick="stepForward()" class="w-10 h-10 rounded-lg bg-[#151a3a] hover:bg-[#1a1f4b] flex items-center justify-center text-white transition-all border border-[#2d3561] hover:border-[#00f3ff]" title="Next Step">
+                    <i class="fas fa-step-forward"></i>
+                </button>
+
+                <div class="h-8 w-px bg-[#2d3561] mx-1"></div>
+
+                <select id="speed-select" onchange="changeSpeed(this.value)" class="bg-[#151a3a] border border-[#2d3561] rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-[#00f3ff] cursor-pointer">
+                    <option value="0.5">0.5x</option>
+                    <option value="1" selected>1x</option>
+                    <option value="2">2x</option>
+                    <option value="5">5x</option>
+                </select>
+            </div>
+        </header>
+
+        <div class="flex-1 flex overflow-hidden">
+            <!-- MAIN VISUALIZATION AREA -->
+            <div class="flex-1 relative bg-[#0a0e27] grid-bg overflow-hidden flex flex-col">
+
+                <!-- INPUT SECTION -->
+                <div id="input-section" class="input-section m-4 shrink-0">
+                    <div class="flex items-center justify-between mb-3">
+                        <h3 class="text-sm font-bold text-[#00f3ff] uppercase tracking-wider flex items-center gap-2">
+                            <i class="fas fa-edit"></i> Input Data
+                        </h3>
+                        <div class="flex gap-2">
+                            <button onclick="generateDefaultData()" class="px-3 py-1.5 text-xs bg-[#151a3a] hover:bg-[#1a1f4b] border border-[#2d3561] rounded text-gray-400 hover:text-white transition-all">
+                                <i class="fas fa-magic mr-1"></i> Default
+                            </button>
+                            <button onclick="generateRandomData()" class="px-3 py-1.5 text-xs bg-[#151a3a] hover:bg-[#1a1f4b] border border-[#2d3561] rounded text-gray-400 hover:text-white transition-all">
+                                <i class="fas fa-random mr-1"></i> Random
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-3 items-start">
+                        <div class="flex-1">
+                            <textarea id="viz-input" class="array-input" rows="2" placeholder="Enter values separated by commas (e.g., 64, 34, 25, 12, 22, 11, 90)"></textarea>
+                            <p class="text-xs text-gray-500 mt-2" id="input-hint">Default: Random array of 15 numbers (1-99)</p>
+                        </div>
+                        <button onclick="applyInputAndReset()" class="px-6 py-3 bg-[#00f3ff] hover:bg-[#00f3ff]/90 text-[#0a0e27] font-bold rounded-lg transition-all shrink-0 h-[60px]">
+                            <i class="fas fa-play mr-2"></i>Apply
+                        </button>
+                    </div>
+                </div>
+
+                <!-- VISUALIZATION CONTAINER -->
+                <div id="viz-container" class="flex-1 relative overflow-auto flex items-center justify-center p-4">
+                    <div id="viz-content" class="w-full h-full flex items-center justify-center">
+                        <div class="text-center text-gray-500">
+                            <i class="fas fa-spinner fa-spin text-4xl mb-4 text-[#00f3ff]"></i>
+                            <p>Loading visualization...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT PANEL -->
+            <aside class="w-[400px] glass border-l border-[#00f3ff]/20 flex flex-col overflow-hidden shrink-0">
+                <div class="flex border-b border-[#00f3ff]/10">
+                    <button onclick="switchTab('explanation')" id="tab-explanation" class="tab-btn active flex-1 text-sm font-medium">Explanation</button>
+                    <button onclick="switchTab('pseudocode')" id="tab-pseudocode" class="tab-btn flex-1 text-sm font-medium">Pseudocode</button>
+                    <button onclick="switchTab('complexity')" id="tab-complexity" class="tab-btn flex-1 text-sm font-medium">Complexity</button>
+                </div>
+
+                <div class="flex-1 overflow-y-auto p-6" id="panel-content">
+                    <!-- Dynamic content -->
+                </div>
+
+                <div class="p-4 border-t border-[#00f3ff]/10 bg-[#0a0e27]/50">
+                    <div class="flex justify-between text-sm mb-2">
+                        <span class="text-gray-400">Progress</span>
+                        <span class="text-[#00f3ff] font-mono" id="progress-text">0/0 steps</span>
+                    </div>
+                    <div class="h-2 bg-[#151a3a] rounded-full overflow-hidden">
+                        <div id="progress-bar" class="h-full bg-gradient-to-r from-[#00f3ff] to-[#8338ec] w-0 transition-all duration-300 rounded-full"></div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </section>
+
+    <!-- PROFILE MODAL -->
+    <div id="profile-modal" class="profile-modal">
+        <div class="glass-strong rounded-2xl w-full max-w-2xl mx-4 overflow-hidden shadow-2xl animate-fade-in">
+            <div class="p-6 border-b border-[#00f3ff]/20 flex items-center justify-between bg-gradient-to-r from-[#151a3a] to-[#0a0e27]">
+                <h3 class="text-xl font-bold text-white flex items-center gap-2"><i class="fas fa-user-circle text-[#00f3ff]"></i> Profile</h3>
+                <button onclick="closeProfile()" class="w-8 h-8 rounded-lg bg-[#0a0e27] hover:bg-[#ff006e]/20 flex items-center justify-center text-gray-400 hover:text-[#ff006e] transition-all"><i class="fas fa-times"></i></button>
+            </div>
+
+            <div class="p-6 max-h-[70vh] overflow-y-auto">
+                <div class="flex items-start gap-6 mb-8">
+                    <div class="relative">
+                        <div class="w-24 h-24 rounded-full bg-gradient-to-br from-[#00f3ff] to-[#8338ec] flex items-center justify-center text-3xl font-bold text-white border-4 border-[#0a0e27] shadow-xl">
+                            <span id="profile-initials">AC</span>
+                        </div>
+                    </div>
+
+                    <div class="flex-1">
+                        <h4 id="profile-name" class="text-2xl font-bold text-white mb-1">Alex Chen</h4>
+                        <p id="profile-email" class="text-gray-400 mb-3">alex.chen@example.com</p>
+                        <div class="flex gap-3">
+                            <span class="px-3 py-1 rounded-full bg-[#00f3ff]/10 border border-[#00f3ff]/30 text-[#00f3ff] text-sm">Pro Member</span>
+                            <span class="px-3 py-1 rounded-full bg-[#10b981]/10 border border-[#10b981]/30 text-[#10b981] text-sm">Active</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-3 gap-4 mb-8">
+                    <div class="text-center p-4 rounded-xl bg-[#151a3a] border border-[#2d3561]">
+                        <div class="text-2xl font-bold text-[#00f3ff] mb-1">12</div>
+                        <div class="text-xs text-gray-400">Topics Mastered</div>
+                    </div>
+                    <div class="text-center p-4 rounded-xl bg-[#151a3a] border border-[#2d3561]">
+                        <div class="text-2xl font-bold text-[#ff006e] mb-1">247</div>
+                        <div class="text-xs text-gray-400">Visualizations</div>
+                    </div>
+                    <div class="text-center p-4 rounded-xl bg-[#151a3a] border border-[#2d3561]">
+                        <div class="text-2xl font-bold text-[#ffbe0b] mb-1">5</div>
+                        <div class="text-xs text-gray-400">Day Streak</div>
+                    </div>
+                </div>
+
+                <div class="mt-8 pt-6 border-t border-[#2d3561] grid grid-cols-3 gap-3">
+                    <button onclick="editProfile()" class="py-3 bg-[#151a3a] hover:bg-[#1a1f4b] border border-[#00f3ff]/30 text-[#00f3ff] rounded-lg font-medium transition-all">Edit Profile</button>
+                    <button onclick="viewAchievements()" class="py-3 bg-gradient-to-r from-[#00f3ff] to-[#8338ec] hover:from-[#00f3ff]/90 hover:to-[#8338ec]/90 text-[#0a0e27] rounded-lg font-bold transition-all">Achievements</button>
+                    <button onclick="handleLogout()" class="py-3 bg-[#ff006e]/10 hover:bg-[#ff006e]/20 border border-[#ff006e]/30 text-[#ff006e] rounded-lg font-medium transition-all flex items-center justify-center gap-2"><i class="fas fa-sign-out-alt"></i> Logout</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main JS Application Logic -->
+    <script src="app.js" defer></script>
+</body>
+
+</html>
